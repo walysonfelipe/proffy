@@ -7,6 +7,7 @@
 
 
 
+
 # :computer: Technologies
 This project was made using the follow technologies:
 <ul>
@@ -21,18 +22,23 @@ This project was made using the follow technologies:
 * Website to sign up teachers and students.
 * App to connect teachers and students.
 
-# Functionalities
 
-## Connections
+
+### Connections
 
 - Route to list the total connections made;
 - Route to create a new connection;
 
-## Classes
+### Classes
 
 - Route to create a class;
 - Route to list classes;
 - Filter by subject, day of the week and time;
+
+## Operation of the api
+<p align="center">
+   <img src="https://github.com/walysonfelipe/proffy/blob/master/github.jpeg?raw=true" alt="Proffy" width="600"/>
+</p>
 
 Released in 2020 :closed_book: License
 
