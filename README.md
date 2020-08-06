@@ -35,7 +35,7 @@ This project was made using the follow technologies:
 - Route to list classes;
 - Filter by subject, day of the week and time;
 
-## Operation of the api
+## How the node api was created
 <p align="center">
    <img src="https://github.com/walysonfelipe/proffy/blob/master/github.jpeg?raw=true" alt="Proffy" width="600"/>
 </p>
