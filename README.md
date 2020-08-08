@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="https://github.com/RafaelGoulartB/Proffy/blob/master/.github/logo.png" alt="Proffy" width="280"/>
+   <img src="https://github.com/walysonfelipe/proffy/blob/master/.github/logo.png?raw=true" alt="Proffy" width="280"/>
 </p>
 <p>
 
@@ -37,7 +37,7 @@ This project was made using the follow technologies:
 
 ## How the node api was created
 <p align="center">
-   <img src="https://github.com/walysonfelipe/proffy/blob/master/github.jpeg?raw=true" alt="Proffy" width="600"/>
+   <img src="https://github.com/walysonfelipe/proffy/blob/master/.github/github.jpeg?raw=true" alt="Proffy" width="600"/>
 </p>
 
 Released in 2020 :closed_book: License
