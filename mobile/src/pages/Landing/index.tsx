@@ -1,22 +1,33 @@
-import React from 'react';
-import { View, Image, Text, TouchableOpacity } from  'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Image, Text, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { RectButton } from 'react-native-gesture-handler';
+import api from '../../services/api';
 
-
- import { RectButton } from   'react-native-gesture-handler';
 import styles from './styles';
 
 import landingImg from '../../assets/images/landing.png';
-import studyicon from '../../assets/images/icons/study.png';
+import studyIcon from '../../assets/images/icons/study.png';
 import giveClassesIcon from '../../assets/images/icons/give-classes.png';
 import heartIcon from '../../assets/images/icons/heart.png';
 
 
-function Landing(){
+function Landing() {
+    const [totalConnections, setTotalConnections] = useState(0);
+
+    useEffect(() => {
+        api.get('connections').then(response => {
+            const { total } = response.data;
+
+            setTotalConnections(total);
+        })
+    }, [])
+
+
     const { navigate } = useNavigation();
 
-    function handleNavigateToGiveClassespage(){
-        navigate('GiveClasses')
+    function handleNavigateToGiveClassesPage() {
+        navigate('GiveClasses');
     }
 
     function handleNavigateToStudyPages(){
@@ -25,47 +36,39 @@ function Landing(){
 
     return (
         <View style={styles.container}>
-           <Image source={landingImg} style={styles.banner} />
-
+            <Image source={landingImg} style={styles.banner} />
 
             <Text style={styles.title}>
                 Seja bem-vindo, {'\n'}
                 <Text style={styles.titleBold}>O que deseja fazer?</Text>
             </Text>
 
+            <View style={styles.buttonsContainer}>
+                <RectButton 
+                    onPress={handleNavigateToStudyPages}
+                    style={[styles.button, styles.buttonPrimary]}
+                >
+                    <Image source={studyIcon} />
 
-             <View style={styles.buttonsContainer}>
-                    <RectButton 
-                      onPress={handleNavigateToStudyPages}
-                    style={[styles.button, styles.buttonPrimary]}>
-                        <Image source={studyicon} />
-                        <Text style={styles.buttonText}
-                           
-                        >
-                            Estudar
-                        </Text>
-                    </RectButton>
+                    <Text style={styles.buttonText} >Estudar</Text>
+                </RectButton>
 
-                    <RectButton style={[styles.button, styles.buttonSecondary]}
-                     onPress={handleNavigateToGiveClassespage} 
-                    >
-                        <Image source={giveClassesIcon} />
-                        <Text style={styles.buttonText}>
-                            Dar aula
-                        </Text>
-                    </RectButton>
-             </View>
+                <RectButton 
+                    onPress={handleNavigateToGiveClassesPage} 
+                    style={[styles.button, styles.buttonSecondary]}
+                >
+                    <Image source={giveClassesIcon} />
 
-             <Text style={styles.totalConnections}>
-                 Total de 200 Conexções já realizadas {' '}
-                 <Image source={heartIcon}  />
-             </Text>
+                    <Text style={styles.buttonText} >Dar aulas</Text>
+                </RectButton>
+            </View>
+
+
+    <Text style={styles.totalConnections}>Total de {totalConnections} conexoes ja realizadas {' '}
+        <Image source={heartIcon} />
+    </Text>
         </View>
-
-
-
     );
-    
 }
 
 export default Landing;
